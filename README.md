@@ -1,59 +1,98 @@
-# AngularEntorns2627
+# 🅰️ Angular Entorns Client — Curs 0612
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.13.
+Repositori de curs per al mòdul **0612 Desenvolupament web en entorn client** (DAW2).
 
-## Development server
+---
 
-To start a local development server, run:
+## 📋 Com usar aquest repositori
+
+### 1. Fes fork d'aquest repositori
+
+Ves a la cantonada superior dreta i clica **Fork**. Treballa sempre al **teu fork** — mai en aquest repositori.
+
+### 2. Clona el teu fork en local
 
 ```bash
+git clone https://github.com/EL-TEU-USUARI/AngularEntornsCurs.git
+cd AngularEntornsCurs
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 3. Consulta les branques de livecoding
 
-## Code scaffolding
+Cada sessió té una branca amb el codi fet en directe a classe:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Branca | Contingut |
+|--------|-----------|
+| `lc/01-entorn-cli` | ng new, estructura de fitxers |
+| `lc/02-typescript-base` | Tipus, interfícies, classes |
+| `lc/03-components` | Crear i usar components |
+| `lc/04-interpolacio-dades` | Mostrar dades del TS al HTML |
+| `lc/05-control-flow-for` | @for i track |
+| `lc/06-control-flow-if` | @if i @else |
+| `lc/07-property-binding` | [ ] Property Binding |
+| `lc/08-event-binding` | ( ) Event Binding |
+| `lc/09-inputs-outputs` | input<>() i output<>() |
+| `lc/10-routes` | Routing bàsic |
+| `lc/11-routes-dinamiques` | Paràmetres de ruta + ngClass |
+| `lc/12-reactive-forms` | FormGroup i FormControl |
+| `lc/13-validadors` | Validators + missatges error |
+| `lc/14-services` | Services + inject() |
+| `lc/15-http-client` | HttpClient + observables |
+| `lc/16-rxjs-behaviorsubject` | BehaviorSubject + estat compartit |
+| `lc/17-jwt-guards` | JWT + HttpInterceptor + AuthGuard |
 
-```bash
-ng generate component component-name
+> Si t'encalles en un repte, mira la branca de la sessió corresponent.
+
+### 4. Entrega cada repte com a Pull Request
+
+1. Fes els canvis al teu fork (`main` o una branca pròpia)
+2. Fes commit: `git commit -m "repte-s03: TarjetaComponent creat"`
+3. Obre un **Pull Request** al teu fork (base: `main`)
+4. Posa a la descripció del PR: **què has fet** i **on has tingut dubtes**
+
+---
+
+## 🗂️ Estructura del projecte
+
+```
+src/
+  app/
+    components/       ← els teus components
+    services/         ← els teus services (a partir d'AEA2)
+    models/           ← interfícies TypeScript
+    pages/            ← pàgines/vistes (a partir de routes)
+  assets/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 📅 Planificació resumida
 
-## Building
+| AEA | Hores | Continguts principals | Instrument |
+|-----|-------|-----------------------|------------|
+| AEA1 | 30h | Angular CLI, TypeScript base, Components, @for/@if, Bindings, Events, Input/Output | Pt1 + Pv1 |
+| AEA2 | 25h | Routes, Reactive Forms, Services, HttpClient, RxJS, JWT + Guards | Pt2 + Pv2 |
+| AEA3 | 44h | Repte (nivells 1–5): app completa amb Laravel + Angular + Docker | Pt3/Rt + Pv3 |
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 📚 Recursos de referència
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- [Repositori d'exemples Angular](https://github.com/fmartinez-dev-learn/AngularSamples) — exemples per tema, per consultar
+- [Documentació oficial Angular](https://angular.dev)
+- [Full de seguiment del curs](https://docs.google.com/spreadsheets/d/1i42OyAwQgxZ-cXNbtTLrWCPjyRTpsFRzeOHcEww7M_I/edit)
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## ⚙️ Versions
 
-```bash
-ng test
-```
+- **Node.js**: 20.x
+- **Angular CLI**: última versió estable (`npm install -g @angular/cli`)
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## ✅ GitHub Actions — comprovació automàtica
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Cada vegada que fas `push`, s'executa automàticament `ng build`. Veuràs ✅ o ❌ a la pestanya **Actions** del teu fork. Si surt ❌, mira el log d'errors.
