@@ -82,7 +82,6 @@ src/
 
 - [Repositori d'exemples Angular](https://github.com/fmartinez-dev-learn/AngularSamples) — exemples per tema, per consultar
 - [Documentació oficial Angular](https://angular.dev)
-- [Full de seguiment del curs](https://docs.google.com/spreadsheets/d/1i42OyAwQgxZ-cXNbtTLrWCPjyRTpsFRzeOHcEww7M_I/edit)
 
 ---
 
@@ -95,4 +94,6 @@ src/
 
 ## ✅ GitHub Actions — comprovació automàtica
 
-Cada vegada que fas `push`, s'executa automàticament `ng build`. Veuràs ✅ o ❌ a la pestanya **Actions** del teu fork. Si surt ❌, mira el log d'errors.
+Cada vegada que fas `push`, s'executa automàticament `ng build`. 
+Veuràs ✅ o ❌ a la pestanya **Actions** del teu fork. 
+Si surt ❌, mira el log d'errors.
