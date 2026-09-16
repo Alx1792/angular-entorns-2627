@@ -61,7 +61,7 @@ src/
   app/
     components/       ← els teus components
     services/         ← els teus services (a partir d'AEA2)
-    models/           ← interfícies TypeScript
+    interfaces/           ← interfícies TypeScript
     pages/            ← pàgines/vistes (a partir de routes)
   assets/
 ```
