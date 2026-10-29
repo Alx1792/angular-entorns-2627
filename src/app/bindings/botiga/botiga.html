@@ -20,10 +20,10 @@
     <div class="graella">
         <h1> [class] amb concatenació </h1>
         @for (p of productes; track p.id){
-            <article [class]=" classesFitxa(p) ">
+            <article [class]=" classesFitxa(p)" [class.confirmat]="afegitAlCarret">
                 <h2> {{ p.nom }}</h2>
                 <p class="preu"> {{p.preu}} €</p>
-                <button class="btn-compra" [disabled]=" !teEstoc(p) "> Afegir al carret </button>
+                <button class="btn-compra" [disabled]="afegitAlCarret || !teEstoc(p)" (click)="afegir()"> Afegir al carret </button>
             </article>
         }
 
