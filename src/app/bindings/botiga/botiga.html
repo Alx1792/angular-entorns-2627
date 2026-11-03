@@ -1,46 +1,26 @@
 <section class="botiga" [class.compacte] = "modeCompacte">
     <h1> {{title}} </h1>
+    <p> Carret: {{ carret.join(', ')}}</p>
+    <input type="search" placeholder="Cerca un producte..." (input)="onCerca($event)">
+    @for(p of productesVisibles; track p.id){
+        ....
+    } @empty{
+        <p class="buit">No hi ha cap producte que coincideix amb la cerca</p>
+    }
+    
+    
+    <span class="resum">{{carret.length}} - {{totalCarret.toFixed(2)}} €</span>
 
     <div class="graella">
-        
-         <h1> [class.nom] = "unica condició" + [class.nom] = "expressió"</h1>
         @for (p of productes; track p.id){
-            <img [src]="imatgeSegura(p)" [alt]="p.nom"/>
-            <article class="fitxa" [class.esgotat] = "p.estoc === 0" [class.destacat]="producteDestacat(p)">
+            <article [class]="classesFitxa(p)" >
+                <img [src]="imatgeSegura(p)" [alt]="p.nom" class="imatge"/>
                 <h2> {{ p.nom }}</h2>
-                <p class="preu"> {{p.preu}} €</p>
-                <button class="btn-compra" [disabled]=" !teEstoc(p) "> Afegir al carret </button>
+                <p class="preu" [style.color]="p.preu > 500 ? '#C00000' : '#1F4E79'"> {{p.preu}} €</p>
+                <button class="btn-compra" [disabled]=" !teEstoc(p) " (click)="afegir(p)"> Afegir al carret </button>
+                <button class="btn-compra" [disabled]="!alCarret(p)" (click)="treure(p)"> Treure del carret </button>
                 <a [href] = "urlFitxa(p)" [title]="'Fitxa de ' + p.nom" > Veure fitxa producte</a>
             </article>
         }
     </div>
-
-
-
-    <div class="graella">
-        <h1> [class] amb concatenació </h1>
-        @for (p of productes; track p.id){
-            <article [class]=" classesFitxa(p)" [class.confirmat]="afegitAlCarret">
-                <h2> {{ p.nom }}</h2>
-                <p class="preu"> {{p.preu}} €</p>
-                <button class="btn-compra" [disabled]="afegitAlCarret || !teEstoc(p)" (click)="afegir()"> Afegir al carret </button>
-            </article>
-        }
-
-    </div>
-
-    <div class="graella">
-        <h1> [style] estils inline calculats </h1>
-        @for (p of productes; track p.id){
-            <article [class]=" classesFitxa(p) ">
-                <h2> {{ p.nom }}</h2>
-                <p class="preu"
-                    [style.color]="p.preu>500 ? '#C00000' : 'blue'"> {{p.preu}} €</p>
-                <button class="btn-compra" [disabled]=" !teEstoc(p) "> Afegir al carret </button>
-            </article>
-        }
-
-    </div>
-
-
 </section>

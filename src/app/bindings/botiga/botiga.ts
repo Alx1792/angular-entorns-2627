@@ -10,17 +10,14 @@ import { ProducteLab, PRODUCTES_LAB } from '../producte-lab';
 export class Botiga {
   title='Botiga de bindings';
   productes : ProducteLab[] = PRODUCTES_LAB;
-  modeCompacte = true;
+  modeCompacte = false;
   afegitAlCarret = false;
+  carret: number[] = [];
+  cerca = '';
 
   teEstoc(p: ProducteLab): boolean{
     return p.estoc > 0;
   }
-
-  producteDestacat(p: ProducteLab): boolean{
-    return p.preu > 500;
-  }
-
   classesFitxa (p: ProducteLab): string{
     const classes = ['fitxa'];
     if (p.preu > 500) classes.push('destacat');
@@ -30,14 +27,34 @@ export class Botiga {
   }
 
   imatgeSegura (p: ProducteLab) : string {
-    return p.imatgeUrl || 'https://placehols.co/300x180?text=Sense+imatge';
+    return p.imatgeUrl || 'https://placehold.co/300x180?text=Sense+imatge';
   }
 
   urlFitxa (p: ProducteLab) : string{
     return `https://botiga.cat/producte/${p.id}`;
   }
-  afegir(): void{
-    this.afegitAlCarret =true;
+  afegir(p: ProducteLab ): void{
+    if (this.teEstoc(p) && !this.alCarret(p)){
+      this.carret.push(p.id);
+    }
+  }
+  alCarret(p: ProducteLab): boolean{
+    return this.carret.includes(p.id);
+  }
+  treure(p: ProducteLab): void{
+    this.carret = this.carret.filter(id => id !== p.id);
+  }
+  get totalCarret(): number{
+    return this.productes
+    .filter(p => this.alCarret(p))//es queda amb els productes que hi ha al carret
+    .reduce((total, p) => total + p.preu, 0);//reduce suma els seus preus començant per 0
+  }
+  onCerca(event: Event): void{
+    this.cerca =(event.target as HTMLInputElement).value;
+  }
+  get productesVisibles(): ProducteLab[]{
+    const text = this.cerca.trim().toLowerCase();
+    return this.productes.filter(p => p.nom.toLowerCase().includes(text));
   }
 
 }
