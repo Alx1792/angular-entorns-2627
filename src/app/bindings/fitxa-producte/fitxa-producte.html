@@ -1,0 +1,11 @@
+ <article [class]="classesFitxa" [class.al-carret]="enCarret" >
+                <img [src]="imatgeSegura" [alt]="producte.nom" class="imatge"/>
+                <h2> {{ producte.nom }}</h2>
+                <p class="preu" [style.color]="producte.preu > 500 ? '#C00000' : '#1F4E79'"> {{producte.preu}} €</p>
+                <button class="btn-compra" [disabled]=" !teEstoc || enCarret " > {{enCarret ? 'Al carret' : 'Afegir al carret'}}</button>
+                
+                @if(enCarret){
+                    <button class="btn-treure" (click)="clickTreure"> Treure del carret </button>
+                }
+                <a [href] = "urlFitxa" [title]="'Fitxa de ' + producte.nom" > Veure fitxa producte</a>
+            </article>

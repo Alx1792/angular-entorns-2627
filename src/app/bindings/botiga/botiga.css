@@ -1,36 +1,5 @@
-.esgotat{
-    color: red;
-}
-.oferta{
-    text-decoration: underline;
-}
-
-.compacte .fitxa {
-    width: 180px;
-}
-.confirmat{
-    border:2px solid #70AD47;
-    background: #f0fff0;
-}
-.imatge{
-    width: 100%;
-}
 .graella{
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-}
-.fitxa{
-    width: 240px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px;
-
-}
-.al-carret{
-    border: 2px solid #70AD47;
-    background: #f0fff0;
-}
-.compacte .imatge{
-    display: none; 
 }
